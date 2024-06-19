@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidebar Toggle</title>
+<style>
+/* Sidebar Styles */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hidden off-screen */
+  width: 300px;
+  height: 100vh;
+  background-color: #333;
+  color: #fff;
+  transition: left 0.3s ease;
+}
+
+#sidebar.open {
+  left: 0; /* Move sidebar to the visible position */
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+/* Button Styles */
+#toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+#toggle-btn:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div id="sidebar">
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Services</li>
+    <li>Contact</li>
+  </ul>
+</div>
+
+<!-- Toggle Button -->
+<button id="toggle-btn" onclick="toggleSidebar()">☰ Toggle Sidebar</button>
+
+<!-- Main Content -->
+<div style="margin-left: 320px; padding: 20px;"> <!-- Adjust margin-left based on sidebar width -->
+  <h1>Main Content</h1>
+  <p>This is the main content of your website.</p>
+</div>
+
+<script>
+// Function to toggle sidebar visibility
+function toggleSidebar() {
+  var sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
